@@ -37,7 +37,7 @@ const Navbar = () => {
                     <Link to="/" className="flex items-center gap-3 group shrink-0" onClick={() => setIsOpen(false)}>
                         <div className="relative">
                             <div className="absolute inset-0 bg-[var(--primary)] blur-md opacity-20 group-hover:opacity-50 transition-opacity"></div>
-                            <img src="/src/assets/logo.png" alt="Stella Logo" className="relative w-8 h-8 object-contain transition-transform group-hover:scale-110" />
+                            <img src="/logo.png" alt="Stella Logo" className="relative w-8 h-8 object-contain transition-transform group-hover:scale-110" />
                         </div>
                         <span className="text-white font-bold tracking-wide text-sm hidden sm:block opacity-90 group-hover:opacity-100 transition-opacity">STELLA</span>
                     </Link>
