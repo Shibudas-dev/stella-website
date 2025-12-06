@@ -59,7 +59,7 @@ const Navbar = () => {
                             </Link>
                         ))}
                         <a
-                            href="https://discord.gg/your-support-server"
+                            href="https://discord.gg/9PczU7aqTD"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-4 py-1.5 rounded-full text-xs font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-300"
