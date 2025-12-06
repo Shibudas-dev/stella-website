@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --primary: #ff003c;
+  --primary-glow: rgba(255, 0, 60, 0.6);
+  --primary-transparent: rgba(255, 0, 60, 0.1);
+  --secondary: #ffffff;
+  --bg-dark: #050505;
+  --bg-card: rgba(20, 20, 20, 0.6);
+  --bg-glass: rgba(255, 255, 255, 0.03);
+  
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  
+  /* Borders */
+  --border-color: rgba(255, 0, 60, 0.3);
+  --border-glow: 0 0 10px var(--primary-glow);
+  
+  /* Spacing */
+  --container-width: 1200px;
+  --header-height: 80px;
+}
