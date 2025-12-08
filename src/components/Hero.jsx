@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight } from 'lucide-react';
+import AnimatedCounter from './AnimatedCounter';
 
 const Hero = () => {
     return (
@@ -44,22 +45,30 @@ const Hero = () => {
                     </Link>
                 </div>
 
-                {/* Stats Section */}
+                {/* Stats Section with Animations */}
                 <div className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4 animate-[fadeIn_1.4s_ease-out] border-t border-white/5 pt-10">
-                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform">
-                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md">10,000+</span>
+                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
+                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
+                            <AnimatedCounter end={1000} suffix="+" />
+                        </span>
                         <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Communities</span>
                     </div>
-                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform">
-                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md">1M+</span>
+                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
+                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
+                            <AnimatedCounter end={50} suffix="k+" />
+                        </span>
                         <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Active Users</span>
                     </div>
-                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform">
-                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md">99.9%</span>
+                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
+                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
+                            <AnimatedCounter end={99.9} decimals={1} suffix="%" />
+                        </span>
                         <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Uptime Stats</span>
                     </div>
-                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform">
-                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md">0ms</span>
+                    <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
+                        <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
+                            0ms
+                        </span>
                         <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Audio Latency</span>
                     </div>
                 </div>

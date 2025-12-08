@@ -5,6 +5,8 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    // Initialize based on window width to avoid "shrink-expand" flash on load
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
     const location = useLocation();
 
     const navLinks = [
@@ -12,38 +14,64 @@ const Navbar = () => {
         { name: 'Commands', path: '/commands', isExternal: false },
     ];
 
-    // Detect scroll to adjust transparency/size if needed (optional dynamic effect)
+    // Detect scroll and screen resize
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
+    // Calculate dynamic dimensions based on state
+    const getNavbarStyles = () => {
+        if (isDesktop) {
+            return {
+                width: '650px',
+                height: '70px', // Increased height as requested
+                borderRadius: '32px'
+            };
+        }
+        // Mobile State
+        return {
+            width: isOpen ? '360px' : '320px',
+            height: isOpen ? '320px' : '70px', // Increased height
+            borderRadius: '32px'
+        };
+    };
+
     return (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex justify-center w-full max-w-[90%] md:max-w-fit pointer-events-none">
-            <nav className={`
-        pointer-events-auto
-        transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
-        ${isOpen ? 'w-full max-w-sm rounded-[32px]' : 'rounded-full min-w-[320px] md:min-w-[600px]'}
-        ${scrolled ? 'bg-black/40 border-white/5' : 'bg-black/20 border-white/10'}
-        backdrop-blur-xl border shadow-[0_8px_40px_rgba(0,0,0,0.4)]
-        p-2
-      `}>
-                <div className="flex items-center justify-between px-4 h-12 md:h-14">
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex justify-center w-full max-w-[95%] pointer-events-none">
+            <nav
+                className={`
+          pointer-events-auto
+          transition-all duration-700 ease-[cubic-bezier(0.25,0.8,0.25,1)]
+          bg-black/20 border border-white/10 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.4)]
+          overflow-hidden
+          ${scrolled && !isOpen ? 'bg-black/50' : ''}
+          ${isOpen ? 'bg-black/60 border-white/10' : ''}
+        `}
+                style={getNavbarStyles()}
+            >
+                <div className="flex items-center justify-between px-4 h-[70px] transition-all duration-500">
 
                     {/* Logo Section */}
                     <Link to="/" className="flex items-center gap-3 group shrink-0" onClick={() => setIsOpen(false)}>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-[var(--primary)] blur-md opacity-20 group-hover:opacity-50 transition-opacity"></div>
-                            <img src="/logo.png" alt="Stella Logo" className="relative w-8 h-8 object-contain transition-transform group-hover:scale-110" />
+                            <div className="absolute inset-0 bg-[var(--primary)] blur-md opacity-20 group-hover:opacity-50 transition-opacity duration-500"></div>
+                            <img src="/logo.png" alt="Stella Logo" className="relative w-8 h-8 object-contain transition-transform duration-500 group-hover:scale-110" />
                         </div>
-                        <span className="text-white font-bold tracking-wide text-sm hidden sm:block opacity-90 group-hover:opacity-100 transition-opacity">STELLA</span>
+                        <span className={`text-white font-bold tracking-wide text-sm hidden sm:block opacity-90 group-hover:opacity-100 transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}>
+                            STELLA
+                        </span>
                     </Link>
 
                     {/* Desktop Nav Links - Hidden on Mobile */}
-                    <div className={`${isOpen ? 'hidden' : 'hidden md:flex'} items-center gap-1 absolute left-1/2 -translate-x-1/2`}>
+                    <div className={`${isOpen ? 'opacity-0 pointer-events-none translate-y-2' : 'opacity-100 flex translate-y-0'} items-center gap-1 absolute left-1/2 -translate-x-1/2 transition-all duration-500 ease-out hidden md:flex`}>
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -70,49 +98,61 @@ const Navbar = () => {
 
                     {/* Right Section: Mobile Toggle or CTA */}
                     <div className="flex items-center gap-2">
-                        {/* CTA Button (Desktop) */}
+                        {/* CTA Button (Desktop - Hidden when Open) */}
                         <Link
                             to="/invite"
-                            className={`${isOpen ? 'hidden' : 'hidden md:flex'} items-center gap-2 px-5 py-2 bg-[var(--primary)] text-white text-xs font-bold rounded-full hover:shadow-[0_0_15px_var(--primary-glow)] hover:scale-105 transition-all duration-300`}
+                            className={`
+                 ${isOpen ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100 scale-100'} 
+                 hidden md:flex items-center gap-2 px-5 py-2 bg-[var(--primary)] text-white text-xs font-bold rounded-full hover:shadow-[0_0_15px_var(--primary-glow)] hover:scale-105 transition-all duration-300
+              `}
                         >
                             Add App
                         </Link>
 
                         {/* Mobile Menu Toggle */}
                         <button
-                            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-white hover:text-[var(--primary)] transition-colors active:scale-95"
+                            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-white hover:text-[var(--primary)] transition-all duration-300 active:scale-90"
                             onClick={() => setIsOpen(!isOpen)}
                         >
-                            {isOpen ? <X size={20} /> : <Menu size={20} />}
+                            <div className={`transition-transform duration-500 ${isOpen ? 'rotate-90' : 'rotate-0'}`}>
+                                {isOpen ? <X size={20} /> : <Menu size={20} />}
+                            </div>
                         </button>
                     </div>
                 </div>
 
                 {/* Mobile Expanded Menu (Dynamic Island Expansion) */}
                 <div className={`
-          overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
-          ${isOpen ? 'max-h-[300px] opacity-100 mt-4 pb-4' : 'max-h-0 opacity-0'}
+          flex flex-col gap-2 px-4 pt-2
+          transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] delay-100
+          ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}
         `}>
-                    <div className="flex flex-col gap-2 px-4">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition-all"
-                            >
-                                <span className="font-medium">{link.name}</span>
-                                {location.pathname === link.path && <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_5px_var(--primary-glow)]"></div>}
-                            </Link>
-                        ))}
+                    {navLinks.map((link) => (
                         <Link
-                            to="/invite"
+                            key={link.name}
+                            to={link.path}
                             onClick={() => setIsOpen(false)}
-                            className="flex items-center justify-center p-3 mt-2 rounded-xl bg-[var(--primary)] text-white font-bold text-sm shadow-[0_0_15px_rgba(255,0,60,0.3)]"
+                            className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition-all duration-300 active:scale-98"
                         >
-                            Add to Discord server
+                            <span className="font-medium">{link.name}</span>
+                            {location.pathname === link.path && <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_5px_var(--primary-glow)]"></div>}
                         </Link>
-                    </div>
+                    ))}
+                    <a
+                        href="https://discord.gg/9PczU7aqTD"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition-all duration-300 active:scale-98"
+                    >
+                        <span className="font-medium">Support Server</span>
+                    </a>
+                    <Link
+                        to="/invite"
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center justify-center p-3 mt-2 rounded-xl bg-[var(--primary)] text-white font-bold text-sm shadow-[0_0_15px_rgba(255,0,60,0.3)] transition-transform active:scale-95"
+                    >
+                        Add to Discord server
+                    </Link>
                 </div>
             </nav>
         </div>
