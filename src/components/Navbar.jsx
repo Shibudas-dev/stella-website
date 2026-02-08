@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Crown } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +12,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', path: '/', isExternal: false },
         { name: 'Commands', path: '/commands', isExternal: false },
+        { name: 'Premium', path: '/premium', isExternal: false },
     ];
 
     // Detect scroll and screen resize
@@ -72,22 +73,29 @@ const Navbar = () => {
 
                     {/* Desktop Nav Links - Hidden on Mobile */}
                     <div className={`${isOpen ? 'opacity-0 pointer-events-none translate-y-2' : 'opacity-100 flex translate-y-0'} items-center gap-1 absolute left-1/2 -translate-x-1/2 transition-all duration-500 ease-out hidden md:flex`}>
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className={`
-                  px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300
-                  ${location.pathname === link.path
-                                        ? 'bg-white/10 text-white shadow-[0_0_10px_rgba(255,255,255,0.1)]'
-                                        : 'text-gray-400 hover:text-white hover:bg-white/5'}
-                `}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isPremium = link.name === 'Premium';
+                            return (
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
+                                    className={`
+                                        px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-1.5
+                                        ${isPremium
+                                            ? 'bg-gradient-to-r from-amber-500/20 to-yellow-500/10 text-amber-400 border border-amber-500/30 hover:border-amber-400/50 hover:shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:text-amber-300'
+                                            : location.pathname === link.path
+                                                ? 'bg-white/10 text-white shadow-[0_0_10px_rgba(255,255,255,0.1)]'
+                                                : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                        }
+                                    `}
+                                >
+                                    {isPremium && <Crown className="w-3.5 h-3.5" />}
+                                    {link.name}
+                                </Link>
+                            );
+                        })}
                         <a
-                            href="https://discord.gg/9PczU7aqTD"
+                            href="https://discord.gg/V5kyZXWVxc"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-4 py-1.5 rounded-full text-xs font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-300"
@@ -127,17 +135,29 @@ const Navbar = () => {
           transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] delay-100
           ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}
         `}>
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.path}
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition-all duration-300 active:scale-98"
-                        >
-                            <span className="font-medium">{link.name}</span>
-                            {location.pathname === link.path && <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_5px_var(--primary-glow)]"></div>}
-                        </Link>
-                    ))}
+                    {navLinks.map((link) => {
+                        const isPremium = link.name === 'Premium';
+                        return (
+                            <Link
+                                key={link.name}
+                                to={link.path}
+                                onClick={() => setIsOpen(false)}
+                                className={`
+                                    flex items-center justify-between p-3 rounded-xl transition-all duration-300 active:scale-98
+                                    ${isPremium
+                                        ? 'bg-gradient-to-r from-amber-500/10 to-yellow-500/5 text-amber-400 border border-amber-500/20 hover:border-amber-400/40'
+                                        : 'hover:bg-white/5 text-gray-300 hover:text-white'
+                                    }
+                                `}
+                            >
+                                <span className="font-medium flex items-center gap-2">
+                                    {isPremium && <Crown className="w-4 h-4" />}
+                                    {link.name}
+                                </span>
+                                {location.pathname === link.path && <div className={`w-1.5 h-1.5 rounded-full ${isPremium ? 'bg-amber-400 shadow-[0_0_5px_rgba(251,191,36,0.5)]' : 'bg-[var(--primary)] shadow-[0_0_5px_var(--primary-glow)]'}`}></div>}
+                            </Link>
+                        );
+                    })}
                     <a
                         href="https://discord.gg/9PczU7aqTD"
                         target="_blank"

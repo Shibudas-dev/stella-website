@@ -7,8 +7,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#ff003c',
-                'primary-glow': 'rgba(255, 0, 60, 0.6)',
+                primary: '#ab00ff',
+                'primary-glow': 'rgba(171, 0, 255, 0.6)',
             }
         },
     },

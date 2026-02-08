@@ -1,312 +1,407 @@
 [
-    {
-        "name": "volume",
-        "category": "Music",
-        "description": "Adjust the playback volume."
-    },
-    {
-        "name": "backward",
-        "category": "Music",
-        "description": "Rewind the current song."
-    },
-    {
-        "name": "clearqueue",
-        "category": "Music",
-        "description": "Clear all songs in the queue."
-    },
-    {
-        "name": "join",
-        "category": "Music",
-        "description": "Summon Stella to your voice channel."
-    },
-    {
-        "name": "grab",
-        "category": "Music",
-        "description": "Save the current song to your DMs."
-    },
-    {
-        "name": "karaoke",
-        "category": "Music",
-        "description": "Toggle karaoke filter effect."
-    },
-    {
-        "name": "forward",
-        "category": "Music",
-        "description": "Fast forward the current song."
-    },
-    {
-        "name": "leave",
-        "category": "Music",
-        "description": "Disconnect Stella from boundaries."
-    },
-    {
-        "name": "loop",
-        "category": "Music",
-        "description": "Toggle song or queue loop."
-    },
-    {
-        "name": "nowplaying",
-        "category": "Music",
-        "description": "Show the currently playing song."
-    },
-    {
-        "name": "pause",
-        "category": "Music",
-        "description": "Pause the music playback."
-    },
-    {
-        "name": "play",
-        "category": "Music",
-        "description": "Play a song from any source."
-    },
-    {
-        "name": "previous",
-        "category": "Music",
-        "description": "Play the previous track."
-    },
-    {
-        "name": "playnext",
-        "category": "Music",
-        "description": "Add a song to the top of the queue."
-    },
-    {
-        "name": "queue",
-        "category": "Music",
-        "description": "Display the current music queue."
-    },
-    {
-        "name": "remove",
-        "category": "Music",
-        "description": "Remove a specific song from the queue."
-    },
-    {
-        "name": "replay",
-        "category": "Music",
-        "description": "Replay the current song."
-    },
-    {
-        "name": "resume",
-        "category": "Music",
-        "description": "Resume paused music."
-    },
-    {
-        "name": "search",
-        "category": "Music",
-        "description": "Search for a song result."
-    },
-    {
-        "name": "shuffle",
-        "category": "Music",
-        "description": "Shuffle the current queue."
-    },
-    {
-        "name": "skip",
-        "category": "Music",
-        "description": "Skip to the next song."
-    },
-    {
-        "name": "skipto",
-        "category": "Music",
-        "description": "Skip to a specific song number."
-    },
-    {
-        "name": "sleeptimer",
-        "category": "Music",
-        "description": "Set a timer to stop the music."
-    },
-    {
-        "name": "stop",
-        "category": "Music",
-        "description": "Stop playback and clear queue."
-    },
-    {
-        "name": "favorites",
-        "category": "Music",
-        "description": "View your favorite songs."
-    },
-    {
-        "name": "playfavorite",
-        "category": "Music",
-        "description": "Play one of your favorites."
-    },
-    {
-        "name": "lyrics",
-        "category": "Music",
-        "description": "Get lyrics for the current song."
-    },
-    {
-        "name": "playlist-addcurrent",
-        "category": "Playlists",
-        "description": "Add current song to a playlist."
-    },
-    {
-        "name": "playlist-delete",
-        "category": "Playlists",
-        "description": "Delete one of your playlists."
-    },
-    {
-        "name": "playlist-import",
-        "category": "Playlists",
-        "description": "Import a playlist from Spotify/YouTube."
-    },
-    {
-        "name": "playlist-info",
-        "category": "Playlists",
-        "description": "View details of a playlist."
-    },
-    {
-        "name": "playlist-list",
-        "category": "Playlists",
-        "description": "List all your saved playlists."
-    },
-    {
-        "name": "playlist-play",
-        "category": "Playlists",
-        "description": "Load and play a saved playlist."
-    },
-    {
-        "name": "playlist-remove",
-        "category": "Playlists",
-        "description": "Remove a song from a playlist."
-    },
-    {
-        "name": "playlist-rename",
-        "category": "Playlists",
-        "description": "Rename a saved playlist."
-    },
-    {
-        "name": "playlist-shuffle",
-        "category": "Playlists",
-        "description": "Shuffle play a saved playlist."
-    },
-    {
-        "name": "playlist-share",
-        "category": "Playlists",
-        "description": "Share a playlist with others."
-    },
-    {
-        "name": "playlist-create",
-        "category": "Playlists",
-        "description": "Create a new custom playlist."
-    },
-    {
-        "name": "spotify-unlink",
-        "category": "Spotify",
-        "description": "Unlink your Spotify account."
-    },
-    {
-        "name": "spotifyartist",
-        "category": "Spotify",
-        "description": "View artist information."
-    },
-    {
-        "name": "spotify-link",
-        "category": "Spotify",
-        "description": "Link your Spotify account."
-    },
-    {
-        "name": "spotify-playlists",
-        "category": "Spotify",
-        "description": "View your Spotify playlists."
-    },
-    {
-        "name": "youtube-unlink",
-        "category": "YouTube",
-        "description": "Unlink your YouTube account."
-    },
-    {
-        "name": "youtube-link",
-        "category": "YouTube",
-        "description": "Link your YouTube account."
-    },
-    {
-        "name": "youtube-playlist",
-        "category": "YouTube",
-        "description": "Play a YouTube playlist."
-    },
-    {
-        "name": "youtube-profile",
-        "category": "YouTube",
-        "description": "View YouTube profile stats."
-    },
-    {
-        "name": "eightd",
-        "category": "Filters",
-        "description": "Apply 8D audio effect."
-    },
-    {
-        "name": "bassboost",
-        "category": "Filters",
-        "description": "Boost the bass frequencies."
-    },
-    {
-        "name": "clearfilters",
-        "category": "Filters",
-        "description": "Remove all audio filters."
-    },
-    {
-        "name": "deepbass",
-        "category": "Filters",
-        "description": "Apply deep bass effect."
-    },
-    {
-        "name": "echo",
-        "category": "Filters",
-        "description": "Apply echo reverb effect."
-    },
-    {
-        "name": "filterpanel",
-        "category": "Filters",
-        "description": "Open the filter control panel."
-    },
-    {
-        "name": "nightcore",
-        "category": "Filters",
-        "description": "Speed up and pitch up (Nightcore)."
-    },
-    {
-        "name": "reverb",
-        "category": "Filters",
-        "description": "Apply spatial reverb effect."
-    },
-    {
-        "name": "slowsong",
-        "category": "Filters",
-        "description": "Slow down playback speed."
-    },
-    {
-        "name": "softbass",
-        "category": "Filters",
-        "description": "Apply soft bass boost."
-    },
-    {
-        "name": "trebleboost",
-        "category": "Filters",
-        "description": "Boost treble frequencies."
-    },
-    {
-        "name": "vaporwave",
-        "category": "Filters",
-        "description": "Slowed and reverb aesthetic."
-    },
-    {
-        "name": "speed",
-        "category": "Filters",
-        "description": "Adjust playback speed."
-    },
-    {
-        "name": "247",
-        "category": "Settings",
-        "description": "Toggle 24/7 mode."
-    },
-    {
-        "name": "autoplay",
-        "category": "Settings",
-        "description": "Toggle received autoplay."
-    },
-    {
-        "name": "setprefix",
-        "category": "Settings",
-        "description": "Change the bot command prefix."
-    }
+  {
+    "name": "bassboost",
+    "category": "Filters",
+    "description": "Apply bassboost filter to the music"
+  },
+  {
+    "name": "clearfilters",
+    "category": "Filters",
+    "description": "Clear all audio filters"
+  },
+  {
+    "name": "deepbass",
+    "category": "Filters",
+    "description": "Apply deep bass filter"
+  },
+  {
+    "name": "echo",
+    "category": "Filters",
+    "description": "Apply echo-like effect"
+  },
+  {
+    "name": "eightd",
+    "category": "Filters",
+    "description": "Apply 8D audio effect (best with headphones)"
+  },
+  {
+    "name": "filterpanel",
+    "category": "Filters",
+    "description": "Show filter selection panel with buttons"
+  },
+  {
+    "name": "nightcore",
+    "category": "Filters",
+    "description": "Apply nightcore filter (high pitch and speed)"
+  },
+  {
+    "name": "reverb",
+    "category": "Filters",
+    "description": "Apply reverb-style effect"
+  },
+  {
+    "name": "slowsong",
+    "category": "Filters",
+    "description": "Slow and lower pitch (sad version)"
+  },
+  {
+    "name": "softbass",
+    "category": "Filters",
+    "description": "Apply soft bass filter"
+  },
+  {
+    "name": "speed",
+    "category": "Filters",
+    "description": "Increase playback speed"
+  },
+  {
+    "name": "surround",
+    "category": "Filters",
+    "description": "Toggle 360° surround sound effect"
+  },
+  {
+    "name": "trebleboost",
+    "category": "Filters",
+    "description": "Boost high frequencies for clearer vocals"
+  },
+  {
+    "name": "vaporwave",
+    "category": "Filters",
+    "description": "Apply vaporwave filter (slow and low pitch)"
+  },
+  {
+    "name": "guide",
+    "category": "General",
+    "description": "Complete guide for music playback and controls"
+  },
+  {
+    "name": "leaderboard",
+    "category": "General",
+    "description": "Show the top listeners this week"
+  },
+  {
+    "name": "musicmatch",
+    "category": "General",
+    "description": "Compare your music taste with another user"
+  },
+  {
+    "name": "mystats",
+    "category": "General",
+    "description": "View your listening statistics"
+  },
+  {
+    "name": "winners",
+    "category": "General",
+    "description": "Show last week\\"
+  },
+  {
+    "name": "addtoplaylist",
+    "category": "Music",
+    "description": "Add favorite tracks to a playlist"
+  },
+  {
+    "name": "backward",
+    "category": "Music",
+    "description": "Rewind the current song by a specific time"
+  },
+  {
+    "name": "clearqueue",
+    "category": "Music",
+    "description": "Clear all songs from the queue (except the current one)."
+  },
+  {
+    "name": "favorites",
+    "category": "Music",
+    "description": "Show your favorite tracks with option to play"
+  },
+  {
+    "name": "forward",
+    "category": "Music",
+    "description": "Forward the current song by a specific time"
+  },
+  {
+    "name": "grab",
+    "category": "Music",
+    "description": "DMs you the currently playing song with link and details."
+  },
+  {
+    "name": "history",
+    "category": "Music",
+    "description": "Show your recently played songs (last 24 hours)"
+  },
+  {
+    "name": "join",
+    "category": "Music",
+    "description": "Make the bot join your voice channel."
+  },
+  {
+    "name": "karaoke",
+    "category": "Music",
+    "description": "Play the karaoke/instrumental version of a song"
+  },
+  {
+    "name": "leave",
+    "category": "Music",
+    "description": "Make the bot leave the voice channel."
+  },
+  {
+    "name": "loop",
+    "category": "Music",
+    "description": "Set loop mode with interactive buttons."
+  },
+  {
+    "name": "lyrics",
+    "category": "Music",
+    "description": "lyrics command"
+  },
+  {
+    "name": "mashup",
+    "category": "Music",
+    "description": "Find and play a mashup of two songs (Slash command only)"
+  },
+  {
+    "name": "move",
+    "category": "Music",
+    "description": "Move the bot to your voice channel"
+  },
+  {
+    "name": "nowplaying",
+    "category": "Music",
+    "description": "Show the currently playing song"
+  },
+  {
+    "name": "pause",
+    "category": "Music",
+    "description": "Pause the current song"
+  },
+  {
+    "name": "play",
+    "category": "Music",
+    "description": "Play a song from YouTube, Spotify, SoundCloud, or other platforms"
+  },
+  {
+    "name": "playfavorite",
+    "category": "Music",
+    "description": "Play your favorite songs with selection menu"
+  },
+  {
+    "name": "playnext",
+    "category": "Music",
+    "description": "Add a song to the top of the queue (plays next)"
+  },
+  {
+    "name": "previous",
+    "category": "Music",
+    "description": "Play the previous song"
+  },
+  {
+    "name": "queue",
+    "category": "Music",
+    "description": "Show the current music queue with pagination"
+  },
+  {
+    "name": "rejoin",
+    "category": "Music",
+    "description": "Rejoin the voice channel (leave and join again)"
+  },
+  {
+    "name": "remove",
+    "category": "Music",
+    "description": "Remove a specific song from the queue"
+  },
+  {
+    "name": "removefavorite",
+    "category": "Music",
+    "description": "Remove tracks from your favorites list"
+  },
+  {
+    "name": "replay",
+    "category": "Music",
+    "description": "Replay the current track from the beginning."
+  },
+  {
+    "name": "resume",
+    "category": "Music",
+    "description": "Resume the paused song"
+  },
+  {
+    "name": "search",
+    "category": "Music",
+    "description": "Search for music on Spotify - just type your query!"
+  },
+  {
+    "name": "shuffle",
+    "category": "Music",
+    "description": "Shuffle the current music queue."
+  },
+  {
+    "name": "skip",
+    "category": "Music",
+    "description": "Skip the current song"
+  },
+  {
+    "name": "skipto",
+    "category": "Music",
+    "description": "Skip to a specific position in the queue"
+  },
+  {
+    "name": "sleeptimer",
+    "category": "Music",
+    "description": "Set a sleep timer to stop music playback"
+  },
+  {
+    "name": "stop",
+    "category": "Music",
+    "description": "Stop the music and clear the queue"
+  },
+  {
+    "name": "suggestion",
+    "category": "Music",
+    "description": "Get personalized music recommendations based on your history (YouTube)."
+  },
+  {
+    "name": "volume",
+    "category": "Music",
+    "description": "Adjust the music volume with interactive controls."
+  },
+  {
+    "name": "playlist-add",
+    "category": "Playlists",
+    "description": "Add a track to your playlist by name or link"
+  },
+  {
+    "name": "playlist-addcurrent",
+    "category": "Playlists",
+    "description": "Add the currently playing song to one of your playlists"
+  },
+  {
+    "name": "playlist-collab",
+    "category": "Playlists",
+    "description": "Manage collaborative mode and collaborators for your playlist"
+  },
+  {
+    "name": "playlist-create",
+    "category": "Playlists",
+    "description": "Create a new playlist"
+  },
+  {
+    "name": "playlist-delete",
+    "category": "Playlists",
+    "description": "Delete one of your playlists or leave a collaborative playlist"
+  },
+  {
+    "name": "playlist-info",
+    "category": "Playlists",
+    "description": "Show playlist details with pagination"
+  },
+  {
+    "name": "playlist-list",
+    "category": "Playlists",
+    "description": "List all your playlists with track viewing"
+  },
+  {
+    "name": "playlist-play",
+    "category": "Playlists",
+    "description": "Play songs from one of your playlists"
+  },
+  {
+    "name": "playlist-remove",
+    "category": "Playlists",
+    "description": "Remove tracks from a playlist with pagination"
+  },
+  {
+    "name": "playlist-rename",
+    "category": "Playlists",
+    "description": "Rename your playlist"
+  },
+  {
+    "name": "playlist-share",
+    "category": "Playlists",
+    "description": "Share one of your playlists with another user"
+  },
+  {
+    "name": "playlist-shuffle",
+    "category": "Playlists",
+    "description": "Shuffle a playlist and play it"
+  },
+  {
+    "name": "playlist-unshare",
+    "category": "Playlists",
+    "description": "Unshare a playlist from a user"
+  },
+  {
+    "name": "premium",
+    "category": "Premium",
+    "description": "View premium status and manage premium features"
+  },
+  {
+    "name": "premium activate",
+    "category": "Premium",
+    "description": "Activate your premium features"
+  },
+  {
+    "name": "premium deactivate",
+    "category": "Premium",
+    "description": "Deactivate your premium features"
+  },
+  {
+    "name": "profile",
+    "category": "Premium",
+    "description": "Check your premium profile status"
+  },
+  {
+    "name": "247",
+    "category": "Settings",
+    "description": "Toggle 24/7 mode (bot stays in VC even when not playing)"
+  },
+  {
+    "name": "autoplay",
+    "category": "Settings",
+    "description": "Toggle autoplay (bot will try to queue a related track when queue ends)"
+  },
+  {
+    "name": "forcefix",
+    "category": "Settings",
+    "description": "Force fix the music player for this server"
+  },
+  {
+    "name": "ping",
+    "category": "Settings",
+    "description": "Check the bot\\"
+  },
+  {
+    "name": "restrict",
+    "category": "Settings",
+    "description": "Restrict bot to work only in a specific channel"
+  },
+  {
+    "name": "setprefix",
+    "category": "Settings",
+    "description": "Change the bot prefix for this server (Admin only)"
+  },
+  {
+    "name": "stats",
+    "category": "Settings",
+    "description": "View bot statistics and information"
+  },
+  {
+    "name": "spotify-link",
+    "category": "Spotify",
+    "description": "Link your Spotify profile"
+  },
+  {
+    "name": "spotify-playlists",
+    "category": "Spotify",
+    "description": "View and play your Spotify playlists"
+  },
+  {
+    "name": "spotify-unlink",
+    "category": "Spotify",
+    "description": "Unlink your Spotify account"
+  },
+  {
+    "name": "spotifyartist",
+    "category": "Spotify",
+    "description": "Search for a Spotify artist and play their top tracks"
+  }
 ]

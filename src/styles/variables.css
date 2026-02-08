@@ -1,8 +1,8 @@
 :root {
-  /* Colors */
-  --primary: #ff003c;
-  --primary-glow: rgba(255, 0, 60, 0.6);
-  --primary-transparent: rgba(255, 0, 60, 0.1);
+  /* Colors - Purple Theme matching bot logo */
+  --primary: #ab00ff;
+  --primary-glow: rgba(171, 0, 255, 0.6);
+  --primary-transparent: rgba(171, 0, 255, 0.1);
   --secondary: #ffffff;
   --bg-dark: #050505;
   --bg-card: rgba(20, 20, 20, 0.6);
@@ -13,7 +13,7 @@
   --text-secondary: #a0a0a0;
   
   /* Borders */
-  --border-color: rgba(255, 0, 60, 0.3);
+  --border-color: rgba(171, 0, 255, 0.3);
   --border-glow: 0 0 10px var(--primary-glow);
   
   /* Spacing */

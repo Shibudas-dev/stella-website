@@ -3,7 +3,12 @@ import { Search } from 'lucide-react';
 import CommandCard from './CommandCard';
 import commandData from '../assets/commands.json';
 
-const categories = ['All', 'Music', 'Filters', 'Playlists', 'Spotify', 'Settings', 'YouTube'];
+// Generate categories dynamically from commands
+const categories = ['All', ...new Set(commandData.map(cmd => cmd.category))].sort((a, b) => {
+    if (a === 'All') return -1;
+    if (b === 'All') return 1;
+    return a.localeCompare(b);
+});
 
 const CommandList = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -44,8 +49,8 @@ const CommandList = () => {
                             key={cat}
                             onClick={() => setActiveTab(cat)}
                             className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${activeTab === cat
-                                    ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-[0_0_15px_var(--primary-glow)] scale-105'
-                                    : 'bg-transparent text-gray-400 border-white/10 hover:border-[var(--primary)] hover:text-white'
+                                ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-[0_0_15px_var(--primary-glow)] scale-105'
+                                : 'bg-transparent text-gray-400 border-white/10 hover:border-[var(--primary)] hover:text-white'
                                 }`}
                         >
                             {cat}

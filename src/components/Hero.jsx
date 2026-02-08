@@ -55,9 +55,9 @@ const Hero = () => {
                     </div>
                     <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
                         <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
-                            <AnimatedCounter end={50} suffix="k+" />
+                            <AnimatedCounter end={600} suffix="k+" />
                         </span>
-                        <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Active Users</span>
+                        <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Users</span>
                     </div>
                     <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
                         <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
@@ -67,7 +67,7 @@ const Hero = () => {
                     </div>
                     <div className="p-4 flex flex-col items-center hover:scale-105 transition-transform group">
                         <span className="text-3xl font-bold text-white mb-1 drop-shadow-md group-hover:text-[var(--primary)] transition-colors">
-                            0ms
+                            15ms
                         </span>
                         <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">Audio Latency</span>
                     </div>

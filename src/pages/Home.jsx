@@ -1,6 +1,8 @@
 import Hero from '../components/Hero';
-
 import Features from '../components/Features';
+import Showcase from '../components/Showcase';
+import StreamPlatforms from '../components/StreamPlatforms';
+import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -9,6 +11,9 @@ const Home = () => {
             <main className="flex-1 w-full">
                 <Hero />
                 <Features />
+                <Showcase />
+                <StreamPlatforms />
+                <FAQ />
             </main>
             <Footer />
         </>
