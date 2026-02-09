@@ -32,7 +32,7 @@ const Navbar = () => {
     const getNavbarStyles = () => {
         if (isDesktop) {
             return {
-                width: '650px',
+                width: '750px',
                 height: '70px', // Increased height as requested
                 borderRadius: '32px'
             };
@@ -40,7 +40,7 @@ const Navbar = () => {
         // Mobile State
         return {
             width: isOpen ? '360px' : '320px',
-            height: isOpen ? '320px' : '70px', // Increased height
+            height: isOpen ? '340px' : '70px', // Increased height for scroll area
             borderRadius: '32px'
         };
     };
@@ -102,6 +102,14 @@ const Navbar = () => {
                         >
                             Support
                         </a>
+                        <a
+                            href="https://top.gg/bot/1442129142693756938"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-5 py-2 rounded-full text-xs font-bold bg-gradient-to-r from-green-500/20 to-emerald-500/10 text-green-400 border border-green-500/30 hover:border-green-400/50 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:text-green-300 transition-all duration-300 flex items-center gap-2 whitespace-nowrap"
+                        >
+                            ⭐ Vote
+                        </a>
                     </div>
 
                     {/* Right Section: Mobile Toggle or CTA */}
@@ -131,7 +139,7 @@ const Navbar = () => {
 
                 {/* Mobile Expanded Menu (Dynamic Island Expansion) */}
                 <div className={`
-          flex flex-col gap-2 px-4 pt-2
+          flex flex-col gap-2 px-4 pt-2 pb-4 overflow-y-auto max-h-[250px]
           transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] delay-100
           ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}
         `}>
@@ -165,6 +173,14 @@ const Navbar = () => {
                         className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition-all duration-300 active:scale-98"
                     >
                         <span className="font-medium">Support Server</span>
+                    </a>
+                    <a
+                        href="https://top.gg/bot/1442129142693756938"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/5 text-green-400 border border-green-500/20 hover:border-green-400/40 transition-all duration-300 active:scale-98"
+                    >
+                        <span className="font-medium flex items-center gap-2">⭐ Vote on Top.gg</span>
                     </a>
                     <Link
                         to="/invite"

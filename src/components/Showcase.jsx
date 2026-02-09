@@ -84,19 +84,45 @@ const Showcase = () => {
 
                 {/* Tab Navigation */}
                 <div className="flex flex-wrap justify-center gap-3 mb-12">
-                    {showcaseItems.map((item, index) => (
-                        <button
-                            key={item.id}
-                            onClick={() => setActiveIndex(index)}
-                            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                                ${activeIndex === index
-                                    ? 'bg-[var(--primary)] text-white shadow-lg shadow-[var(--primary)]/30'
-                                    : 'bg-neutral-900/80 text-gray-400 border border-white/10 hover:border-[var(--primary)]/50 hover:text-white'
-                                }`}
-                        >
-                            {item.title.split(' ').slice(-2).join(' ')}
-                        </button>
-                    ))}
+                    {showcaseItems.map((item, index) => {
+                        const IconMap = {
+                            'play': Play,
+                            'filters': SlidersHorizontal,
+                            'playlist': ListMusic,
+                            'queue': List,
+                            'spotify': Music2
+                        };
+                        const TabIcon = IconMap[item.id] || Play;
+
+                        return (
+                            <button
+                                key={item.id}
+                                onClick={() => setActiveIndex(index)}
+                                className={`group relative flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 overflow-hidden
+                                    ${activeIndex === index
+                                        ? 'text-white'
+                                        : 'text-gray-400 hover:text-white'
+                                    }`}
+                                style={{
+                                    background: activeIndex === index
+                                        ? 'linear-gradient(145deg, rgba(171,0,255,0.3) 0%, rgba(171,0,255,0.1) 100%)'
+                                        : 'linear-gradient(145deg, #0e0c14 0%, #08070c 100%)',
+                                    border: activeIndex === index
+                                        ? '1px solid rgba(171,0,255,0.4)'
+                                        : '1px solid rgba(255,255,255,0.04)',
+                                    boxShadow: activeIndex === index
+                                        ? '0 0 30px rgba(171,0,255,0.2), inset 0 0 20px rgba(171,0,255,0.1)'
+                                        : '0 4px 20px rgba(0,0,0,0.2)'
+                                }}
+                            >
+                                {/* Hover glow */}
+                                <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-2xl bg-[var(--primary)]" />
+
+                                <TabIcon className={`w-4 h-4 transition-colors ${activeIndex === index ? 'text-[var(--primary)]' : 'text-gray-500 group-hover:text-[var(--primary)]'}`} />
+                                <span className="relative">{item.title.split(' ').slice(-2).join(' ')}</span>
+                            </button>
+                        );
+                    })}
                 </div>
 
                 {/* Showcase Content */}
@@ -115,15 +141,29 @@ const Showcase = () => {
                             {activeItem.features.map((feature) => (
                                 <div
                                     key={feature.title}
-                                    className="p-4 rounded-2xl bg-neutral-900/60 border border-white/5 hover:border-[var(--primary)]/30 transition-all duration-300 group"
+                                    className="relative p-5 rounded-2xl transition-all duration-500 group/card overflow-hidden hover:scale-[1.02] hover:-translate-y-1"
+                                    style={{
+                                        background: 'linear-gradient(145deg, #0e0c14 0%, #08070c 50%, #0c0a12 100%)',
+                                        border: '1px solid rgba(255,255,255,0.04)',
+                                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
+                                    }}
                                 >
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-8 h-8 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] group-hover:scale-110 transition-transform">
+                                    {/* Corner glow */}
+                                    <div className="absolute -top-10 -left-10 w-24 h-24 rounded-full opacity-30 group-hover/card:opacity-60 transition-opacity duration-700 blur-2xl bg-[var(--primary)]" />
+
+                                    {/* Hover border glow */}
+                                    <div
+                                        className="absolute inset-0 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                        style={{ boxShadow: '0 0 30px rgba(171,0,255,0.15), inset 0 0 1px rgba(171,0,255,0.3)' }}
+                                    />
+
+                                    <div className="relative flex items-center gap-3 mb-2">
+                                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--primary)] to-purple-600 flex items-center justify-center text-white shadow-lg">
                                             {feature.icon}
                                         </div>
                                         <span className="font-semibold text-white text-sm">{feature.title}</span>
                                     </div>
-                                    <p className="text-gray-500 text-xs pl-11">{feature.desc}</p>
+                                    <p className="relative text-gray-500 text-xs pl-12">{feature.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -143,24 +183,30 @@ const Showcase = () => {
                         </div>
 
                         {/* Image Container */}
-                        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 group max-w-md mx-auto lg:mx-0">
-                            {/* Glow effect on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)]/0 via-[var(--primary)]/5 to-[var(--primary)]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div
+                            className="relative rounded-[28px] overflow-hidden group max-w-md mx-auto lg:mx-0 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1"
+                            style={{
+                                background: 'linear-gradient(145deg, #0e0c14 0%, #08070c 50%, #0c0a12 100%)',
+                                border: '1px solid rgba(255,255,255,0.06)',
+                                boxShadow: '0 25px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.03)'
+                            }}
+                        >
+                            {/* Corner gradient glow */}
+                            <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-700 blur-3xl bg-[var(--primary)]" />
+                            <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-3xl bg-purple-500" />
 
+                            {/* Hover border glow */}
+                            <div
+                                className="absolute inset-0 rounded-[28px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                style={{ boxShadow: '0 0 40px rgba(171,0,255,0.15), inset 0 0 2px rgba(171,0,255,0.3)' }}
+                            />
+
+                            {/* Image */}
                             <img
                                 src={activeItem.image}
                                 alt={activeItem.title}
-                                className="w-full h-auto max-h-[400px] object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                                className="relative w-full h-auto max-h-[400px] object-contain p-4"
                             />
-                        </div>
-
-                        {/* Floating badge */}
-                        <div className="absolute -bottom-6 right-8 bg-neutral-900/90 backdrop-blur-sm border border-white/10 rounded-2xl px-5 py-3 shadow-xl">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                <span className="text-white font-medium text-sm">Reliable</span>
-                            </div>
-                            <p className="text-gray-500 text-xs mt-1">24/7 uptime and crystal-clear audio</p>
                         </div>
                     </div>
                 </div>

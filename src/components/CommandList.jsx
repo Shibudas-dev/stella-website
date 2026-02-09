@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
+import { Search, Sliders, Music, ListMusic, Settings, Crown, LayoutGrid, Music2 } from 'lucide-react';
 import CommandCard from './CommandCard';
 import commandData from '../assets/commands.json';
 
@@ -9,6 +9,18 @@ const categories = ['All', ...new Set(commandData.map(cmd => cmd.category))].sor
     if (b === 'All') return 1;
     return a.localeCompare(b);
 });
+
+// Icon mapping for categories
+const categoryIcons = {
+    'All': LayoutGrid,
+    'Music': Music,
+    'Filters': Sliders,
+    'Playlists': ListMusic,
+    'Settings': Settings,
+    'Premium': Crown,
+    'General': LayoutGrid,
+    'Spotify': Music2
+};
 
 const CommandList = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -43,19 +55,38 @@ const CommandList = () => {
                 </div>
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap justify-center gap-4">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveTab(cat)}
-                            className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${activeTab === cat
-                                ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-[0_0_15px_var(--primary-glow)] scale-105'
-                                : 'bg-transparent text-gray-400 border-white/10 hover:border-[var(--primary)] hover:text-white'
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
+                <div className="flex flex-wrap justify-center gap-3">
+                    {categories.map((cat) => {
+                        const CategoryIcon = categoryIcons[cat] || LayoutGrid;
+                        return (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveTab(cat)}
+                                className={`group relative flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 overflow-hidden
+                                    ${activeTab === cat
+                                        ? 'text-white'
+                                        : 'text-gray-400 hover:text-white'
+                                    }`}
+                                style={{
+                                    background: activeTab === cat
+                                        ? 'linear-gradient(145deg, rgba(171,0,255,0.3) 0%, rgba(171,0,255,0.1) 100%)'
+                                        : 'linear-gradient(145deg, #0e0c14 0%, #08070c 100%)',
+                                    border: activeTab === cat
+                                        ? '1px solid rgba(171,0,255,0.4)'
+                                        : '1px solid rgba(255,255,255,0.04)',
+                                    boxShadow: activeTab === cat
+                                        ? '0 0 30px rgba(171,0,255,0.2), inset 0 0 20px rgba(171,0,255,0.1)'
+                                        : '0 4px 20px rgba(0,0,0,0.2)'
+                                }}
+                            >
+                                {/* Hover glow */}
+                                <div className="absolute -top-8 -left-8 w-16 h-16 rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-2xl bg-[var(--primary)]" />
+
+                                <CategoryIcon className={`w-4 h-4 transition-colors ${activeTab === cat ? 'text-[var(--primary)]' : 'text-gray-500 group-hover:text-[var(--primary)]'}`} />
+                                <span className="relative">{cat}</span>
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 
