@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Commands from './pages/Commands';
 import Premium from './pages/Premium';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 import Redirect from './pages/Redirect';
 import Loading from './components/Loading';
 import ScrollToTop from './components/ScrollToTop';
@@ -41,6 +43,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/commands" element={<Commands />} />
           <Route path="/premium" element={<Premium />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/invite" element={<Redirect to={INVITE_LINK} />} />
           <Route path="/support" element={<Redirect to={SUPPORT_LINK} />} />
         </Routes>

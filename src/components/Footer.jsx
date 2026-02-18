@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -6,6 +7,12 @@ const Footer = () => {
             <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
                 <div className="flex items-center gap-2">
                     <span>&copy; {new Date().getFullYear()} Stella Bot</span>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <Link to="/terms" className="hover:text-gray-300 transition-colors duration-200">Terms of Service</Link>
+                    <span className="text-gray-700">|</span>
+                    <Link to="/privacy" className="hover:text-gray-300 transition-colors duration-200">Privacy Policy</Link>
                 </div>
 
                 <div className="flex items-center gap-2">
